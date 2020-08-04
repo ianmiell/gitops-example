@@ -3,7 +3,7 @@
 ## Why?
 This repository documents a very simple GitOps set up, which can be used as a starting point for further development, experimentation, or learning.
 
-*Skip to "Walkthrough" below if you want to just get going.*
+**Skip to "Walkthrough" below if you want to just get going.**
  
 One of the problems with setting up GitOps workflows is their sheer complexity. The number of decisions that must be made, and array of choices at these decision points make teaching it very complicated.
 
