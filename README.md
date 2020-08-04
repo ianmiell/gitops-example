@@ -90,7 +90,7 @@ The `Repository Dispatch` step above effectively sends a message to the [example
 - Commit the new image reference to the codebase (`Commit The New Image Reference`)
 
 
-## Install / Set Up {#setup}
+## Install / Set Up
 
 ### Pre-Requisites
 
