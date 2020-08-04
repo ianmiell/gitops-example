@@ -1,9 +1,11 @@
 # Example GitOps
 
 ## Why?
-This repository documents a very simple GitOps set up, which is used for educational purposes.
+This repository documents a very simple GitOps set up, which can be used as a starting point for further development, experimentation, or learning.
 
-One of the problems with setting up GitOps workflows is their sheer complexity. The number of decisions that must be made, and array of choices at these decision points make teaching it very complicated. This example repository
+*Skip to "Walkthrough" below if you want to just get going.*
+ 
+One of the problems with setting up GitOps workflows is their sheer complexity. The number of decisions that must be made, and array of choices at these decision points make teaching it very complicated.
 
 This example aims to:
 
@@ -88,7 +90,7 @@ The `Repository Dispatch` step above effectively sends a message to the [example
 - Commit the new image reference to the codebase (`Commit The New Image Reference`)
 
 
-## Install / Set Up
+## Install / Set Up {#setup}
 
 ### Pre-Requisites
 
