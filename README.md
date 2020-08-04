@@ -15,7 +15,7 @@ This example aims to:
 
 - Be as simple as possible
 
-## Repositories
+## Repositories
 
 The two repositories involved are:
 
@@ -39,7 +39,7 @@ A developer can trigger a release by updating a Git repository which contains th
 
 A operator can change the deployment code in [example-gitops-deploy](https://github.com/ianmiell/example-gitops-deploy).
 
-#### Step 2
+#### Step 2
 
 Pushing or merging the change to the `main` branch of the [example-gitops-app](https://github.com/ianmiell/example-gitops-app) triggers a Docker build process.
 
@@ -51,11 +51,11 @@ If the Docker image build is successful, it is pushed to the Docker image reposi
 
 Following the Docker image push, the [example-gitops-deploy](https://github.com/ianmiell/example-gitops-deploy) Git repository is updated with the new image reference.
 
-#### Step 5
+#### Step 5
 
 Any change to the [example-gitops-deploy](https://github.com/ianmiell/example-gitops-deploy) repository (ie from Step 1a or Step 1b) will result in the Flux controller examining that repository and applying any changes that need to be made to the workload running in the cluster.
 
-## Implementation
+## Implementation
 
 ### Application
 
@@ -90,7 +90,7 @@ The `Repository Dispatch` step above effectively sends a message to the [example
 
 ## Install / Set Up
 
-### Pre-Requisites
+### Pre-Requisites
 
 You will need:
 
@@ -110,7 +110,7 @@ Notes:
 
 - GitHub: will use the [GitHub Packages](https://github.com/features/packages) service, which has a free tier which should be sufficient for this.
 
-### Walkthrough
+### Walkthrough
 
 1. Get personal access tokens (PATs)
   1. See [here](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
