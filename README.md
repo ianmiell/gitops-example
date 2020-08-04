@@ -114,18 +114,13 @@ Notes:
 
 ### Walkthrough
 
-1. Get personal access tokens (PATs)
-  1. See [here](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
-  1. Go to: `Settings => Developer Settings => Tick: public_repo`. Note the value, which will be referred to as: `EXAMPLE_GITOPS_DEPLOY_TRIGGER` below
-  1. Go to: `Settings => Developer Settings => Tick: read:packages`. Note the value, which will be referred to as: `EXAMPLE_GITOPS_DEPLOY_DOCKER_LOGIN` below
-1. Fork the repos
-  1. https://github.com/ianmiell/example-gitops-app
-  1. https://github.com/ianmiell/example-gitops-deploy
+1. Get personal access tokens (PATs). See [here](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
+1. Go to: `Settings => Developer Settings => Tick: public_repo`. Note the value, which will be referred to as: `EXAMPLE_GITOPS_DEPLOY_TRIGGER` below
+1. Go to: `Settings => Developer Settings => Tick: read:packages`. Note the value, which will be referred to as: `EXAMPLE_GITOPS_DEPLOY_DOCKER_LOGIN` below
+1. Fork the repos: https://github.com/ianmiell/example-gitops-app and https://github.com/ianmiell/example-gitops-deploy
 1. Update `.github/workflows/main.yml` in the `example-gitops-app` and replace `ianmiell` with your GitHub username
-1. Set up Docker registry secret, remembering to replace `EXAMPLE_GITOPS_DEPLOY_DOCKER_LOGIN` with the personal access token created above:
-  1. `kubectl create -n example-gitops secret docker-registry regcred --docker-server=docker.pkg.github.com --docker-username=ianmiell --docker-password=EXAMPLE_GITOPS_DEPLOY_DOCKER_LOGIN --docker-email=ian.miell@gmail.com`
-1. Set up FluxCD
-  1. Instructions are [here](https://github.com/fluxcd/flux/blob/master/docs/tutorials/get-started.md)
+1. Set up Docker registry secret, remembering to replace `EXAMPLE_GITOPS_DEPLOY_DOCKER_LOGIN` with the personal access token created above: `kubectl create -n example-gitops secret docker-registry regcred --docker-server=docker.pkg.github.com --docker-username=ianmiell --docker-password=EXAMPLE_GITOPS_DEPLOY_DOCKER_LOGIN --docker-email=ian.miell@gmail.com`
+1. Set up FluxCD: Instructions are [here](https://github.com/fluxcd/flux/blob/master/docs/tutorials/get-started.md)
 
 Now you have the infrastructure set up, you can proceed to make a change on the app repo and then wait for it to deploy automatically.
 
