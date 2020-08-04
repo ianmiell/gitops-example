@@ -1,4 +1,4 @@
-# Example GitOps
+# Example GitOps Pipeline
 
 ## Why?
 This repository documents a very simple GitOps set up, which can be used as a starting point for further development, experimentation, or learning.
