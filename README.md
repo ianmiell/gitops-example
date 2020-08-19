@@ -35,6 +35,10 @@ This diagram illustrates the flow at a high level:
 
 ![High Level Workflow](images/HighLevel.png)
 
+#### Step 0
+
+(Optional) Infrastructure engineer creates Kubernetes cluster using Terraform.
+
 #### Step 1a
 
 A developer can trigger a release by updating a Git repository which contains the application code ([example-gitops-app](https://github.com/ianmiell/example-gitops-app)).
