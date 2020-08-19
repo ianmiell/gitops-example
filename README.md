@@ -37,7 +37,9 @@ This diagram illustrates the flow at a high level:
 
 #### Step 0
 
-(Optional) Infrastructure engineer creates Kubernetes cluster using Terraform.
+This step is optional if you already have a Kubernetes cluster.
+
+Infrastructure engineer creates Kubernetes cluster using Terraform.
 
 #### Step 1a
 
