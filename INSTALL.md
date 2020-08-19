@@ -22,9 +22,9 @@ Notes:
 
 ## Walkthrough
 
-1. Get personal access token `EXAMPLE_GITOPS_DEPLOY_TRIGGER`. Go to: `Settings => Developer Settings => Tick: public_repo`. Note the value, which will be referred to as: `EXAMPLE_GITOPS_DEPLOY_TRIGGER` below
-1. Get personal access token `EXAMPLE_GITOPS_DEPLOY_DOCKER_LOGIN`. Go to: `Settings => Developer Settings => Tick: read:packages`. Note the value, which will be referred to as: `EXAMPLE_GITOPS_DEPLOY_DOCKER_LOGIN` below
-1. Fork the repos: https://github.com/ianmiell/example-gitops-app and https://github.com/ianmiell/example-gitops-deploy
+1. Get personal access token `EXAMPLE_GITOPS_DEPLOY_TRIGGER`: On GitHub, go to `Settings => Developer Settings => Tick: public_repo`. Note the value, which will be referred to as: `EXAMPLE_GITOPS_DEPLOY_TRIGGER` below
+1. Get personal access token `EXAMPLE_GITOPS_DEPLOY_DOCKER_LOGIN`: On GitHub, go to: `Settings => Developer Settings => Tick: read:packages`. Note the value, which will be referred to as: `EXAMPLE_GITOPS_DEPLOY_DOCKER_LOGIN` below
+1. Fork the repos: https://github.com/ianmiell/example-gitops-app and https://github.com/ianmiell/example-gitops-deploy (and, optionally, https://github.com/ianmiell/example-gitops-infra if you do not have kubectl access to a cluster, or want that provisioned in a GitOps manner also - see 'Kubernetes Cluster' below)
 1. Update `.github/workflows/main.yml` in the `example-gitops-app` and replace `ianmiell` with your GitHub username
 1. Create secret `EXAMPLE_GITOPS_DEPLOY_TRIGGER` in your example-gitops-app fork with the value you noted above
 1. Set up Docker registry secret in your Kubernetes cluster, remembering to replace `EXAMPLE_GITOPS_DEPLOY_DOCKER_LOGIN` with the personal access token created above: `kubectl create -n example-gitops secret docker-registry regcred --docker-server=docker.pkg.github.com --docker-username=ianmiell --docker-password=EXAMPLE_GITOPS_DEPLOY_DOCKER_LOGIN --docker-email=ian.miell@gmail.com`
@@ -41,17 +41,19 @@ curl localhost:8080
 
 ## Kubernetes Cluster
 
-If you want to use the (optional) example-gitops-infra repository, then
+If you want to use the (optional) example-gitops-infra repository to set up a Kubernetes cluster in a GitOps manner, then instructions are below.
 
 ### Branches
 
-aws - terraform for AWS
+There are separate branches per cloud provider
 
-gcp - terraform for GCP
+`aws` - terraform for AWS
 
-### To Run This Up (AWS)
+`gcp` - terraform for GCP
 
-- Set up AWS account with appropriate privileges to create and administer the resources in this terraform module
+### To Run This Up On AWS
+
+- Set up AWS account with appropriate privileges (admin is fine for this example's purposes) to create and administer the resources in this terraform module
 
 - Create AWS key
 
@@ -72,6 +74,6 @@ mv newkubeconfig ~/.kube/config
 kubectx   # choose aws context
 ```
 
-### To Run This Up (GCP)
+### To Run This Up On GCP
 
 TODO
