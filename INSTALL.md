@@ -76,4 +76,14 @@ kubectx   # choose aws context
 
 ### To Run This Up On GCP
 
-TODO
+- Create a project, and note the project-id
+
+- Replace the `project` setting in `connections.tf` with your project-id (NOTE: this is NOT the project 'Name', rather the project 'ID')
+
+- `gcloud init` and set up your gcloud client
+
+- `terraform init`
+
+- `terraform apply`
+
+- Go to cluster in console, and click on 'Connect' to get the 'Command-line access' command, which will look similar to: `gcloud container clusters get-credentials cluster-1 --zone ZONE --project PROJECT-ID`
