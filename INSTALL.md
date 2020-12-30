@@ -24,10 +24,10 @@ Notes:
 
 1. Get personal access token `EXAMPLE_GITOPS_DEPLOY_TRIGGER`: On GitHub, go to `Settings => Developer Settings => Tick: public_repo`. Note the value, which will be referred to as: `EXAMPLE_GITOPS_DEPLOY_TRIGGER` below
 1. Get personal access token `EXAMPLE_GITOPS_DEPLOY_DOCKER_LOGIN`: On GitHub, go to: `Settings => Developer Settings => Tick: read:packages`. Note the value, which will be referred to as: `EXAMPLE_GITOPS_DEPLOY_DOCKER_LOGIN` below
-1. Fork the repos: https://github.com/ianmiell/example-gitops-app and https://github.com/ianmiell/example-gitops-deploy (and, optionally, https://github.com/ianmiell/example-gitops-infra if you do not have kubectl access to a cluster, or want that provisioned in a GitOps manner also - see 'Kubernetes Cluster' below)
-1. Update `.github/workflows/main.yml` in the `example-gitops-app` and replace `ianmiell` with your GitHub username
-1. Create secret `EXAMPLE_GITOPS_DEPLOY_TRIGGER` in your example-gitops-app fork with the value you noted above
-1. Set up Docker registry secret in your Kubernetes cluster, remembering to replace `EXAMPLE_GITOPS_DEPLOY_DOCKER_LOGIN` with the personal access token created above: `kubectl create -n example-gitops secret docker-registry regcred --docker-server=docker.pkg.github.com --docker-username=ianmiell --docker-password=EXAMPLE_GITOPS_DEPLOY_DOCKER_LOGIN --docker-email=ian.miell@gmail.com`
+1. Fork the repos: https://github.com/ianmiell/gitops-example-app and https://github.com/ianmiell/gitops-example-deploy (and, optionally, https://github.com/ianmiell/gitops-example-infra if you do not have kubectl access to a cluster, or want that provisioned in a GitOps manner also - see 'Kubernetes Cluster' below)
+1. Update `.github/workflows/main.yml` in the `gitops-example-app` and replace `ianmiell` with your GitHub username
+1. Create secret `EXAMPLE_GITOPS_DEPLOY_TRIGGER` in your gitops-example-app fork with the value you noted above
+1. Set up Docker registry secret in your Kubernetes cluster, remembering to replace `EXAMPLE_GITOPS_DEPLOY_DOCKER_LOGIN` with the personal access token created above: `kubectl create -n gitops-example secret docker-registry regcred --docker-server=docker.pkg.github.com --docker-username=ianmiell --docker-password=EXAMPLE_GITOPS_DEPLOY_DOCKER_LOGIN --docker-email=ian.miell@gmail.com`
 1. Set up FluxCD: Instructions are [here](https://github.com/fluxcd/flux/blob/master/docs/tutorials/get-started.md)
 
 Now you have the infrastructure set up, you can proceed to make a change on the app repo and then wait for it to deploy automatically.
@@ -35,13 +35,13 @@ Now you have the infrastructure set up, you can proceed to make a change on the 
 ## Check it worked
 
 ```
-kubectl -n example-gitops deployment/example-gitops-deployment 8000:8000 &
+kubectl -n gitops-example deployment/gitops-example-deployment 8000:8000 &
 curl localhost:8080
 ```
 
 ## Kubernetes Cluster
 
-If you want to use the (optional) example-gitops-infra repository to set up a Kubernetes cluster in a GitOps manner, then instructions are below.
+If you want to use the (optional) gitops-example-infra repository to set up a Kubernetes cluster in a GitOps manner, then instructions are below.
 
 ### Branches
 

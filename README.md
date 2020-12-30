@@ -21,11 +21,11 @@ This example aims to:
 
 The repositories involved are:
 
-- [example-gitops-app](https://github.com/ianmiell/example-gitops-app)
+- [gitops-example-app](https://github.com/ianmiell/gitops-example-app)
 
-- [example-gitops-deploy](https://github.com/ianmiell/example-gitops-deploy)
+- [gitops-example-deploy](https://github.com/ianmiell/gitops-example-deploy)
 
-- [example-gitops-infra](https://github.com/ianmiell/example-gitops-infra) (optional, if you already have a Kubernetes cluster set up)
+- [gitops-example-infra](https://github.com/ianmiell/gitops-example-infra) (optional, if you already have a Kubernetes cluster set up)
 
 ## Workflow
 
@@ -43,15 +43,15 @@ Infrastructure engineer creates Kubernetes cluster using Terraform.
 
 #### Step 1a
 
-A developer can trigger a release by updating a Git repository which contains the application code ([example-gitops-app](https://github.com/ianmiell/example-gitops-app)).
+A developer can trigger a release by updating a Git repository which contains the application code ([gitops-example-app](https://github.com/ianmiell/gitops-example-app)).
 
 #### Step 1b
 
-A operator can change the deployment code in [example-gitops-deploy](https://github.com/ianmiell/example-gitops-deploy).
+A operator can change the deployment code in [gitops-example-deploy](https://github.com/ianmiell/gitops-example-deploy).
 
 #### Step 2
 
-Pushing or merging the change to the `main` branch of the [example-gitops-app](https://github.com/ianmiell/example-gitops-app) triggers a Docker build process.
+Pushing or merging the change to the `main` branch of the [gitops-example-app](https://github.com/ianmiell/gitops-example-app) triggers a Docker build process.
 
 #### Step 3
 
@@ -59,11 +59,11 @@ If the Docker image build is successful, it is pushed to the Docker image reposi
 
 #### Step 4
 
-Following the Docker image push, the [example-gitops-deploy](https://github.com/ianmiell/example-gitops-deploy) Git repository is updated with the new image reference.
+Following the Docker image push, the [gitops-example-deploy](https://github.com/ianmiell/gitops-example-deploy) Git repository is updated with the new image reference.
 
 #### Step 5
 
-Any change to the [example-gitops-deploy](https://github.com/ianmiell/example-gitops-deploy) repository (ie from Step 1a or Step 1b) will result in the Flux controller examining that repository and applying any changes that need to be made to the workload running in the cluster.
+Any change to the [gitops-example-deploy](https://github.com/ianmiell/gitops-example-deploy) repository (ie from Step 1a or Step 1b) will result in the Flux controller examining that repository and applying any changes that need to be made to the workload running in the cluster.
 
 ## Implementation
 
@@ -71,13 +71,13 @@ Any change to the [example-gitops-deploy](https://github.com/ianmiell/example-gi
 
 The application is a simple web service that outputs a 'Hello World' message to any HTTP clients.
 
-This is the [Dockerfile](https://github.com/ianmiell/example-gitops-app/blob/main/Dockerfile).
+This is the [Dockerfile](https://github.com/ianmiell/gitops-example-app/blob/main/Dockerfile).
 
 ### Application Image Build and Update Process
 
 The build and update process for the image is implemented using [GitHub Actions](https://github.com/features/actions).
 
-[This file](https://github.com/ianmiell/example-gitops-app/blob/main/.github/workflows/main.yml) defines the process, which falls into three parts:
+[This file](https://github.com/ianmiell/gitops-example-app/blob/main/.github/workflows/main.yml) defines the process, which falls into three parts:
 
 - Check out the code (`actions/checkout@v2`)
 
@@ -87,9 +87,9 @@ The build and update process for the image is implemented using [GitHub Actions]
 
 ### Deployment Git Repository Update Process
 
-The `Repository Dispatch` step above effectively sends a message to the [example-gitops-deploy](https://github.com/ianmiell/example-gitops-deploy) Git repository containing a URL for the Docker image that was just created.
+The `Repository Dispatch` step above effectively sends a message to the [gitops-example-deploy](https://github.com/ianmiell/gitops-example-deploy) Git repository containing a URL for the Docker image that was just created.
 
-[This file](https://github.com/ianmiell/example-gitops-deploy/blob/main/.github/workflows/main.yml) defines a GitHub Action process which also falls into three parts:
+[This file](https://github.com/ianmiell/gitops-example-deploy/blob/main/.github/workflows/main.yml) defines a GitHub Action process which also falls into three parts:
 
 - Check out the code (`Check Out The Repository`)
 
@@ -99,4 +99,4 @@ The `Repository Dispatch` step above effectively sends a message to the [example
 
 ## Install / Set Up
 
-See [INSTALL.md](https://github.com/ianmiell/example-gitops/blob/main/INSTALL.md)
+See [INSTALL.md](https://github.com/ianmiell/gitops-example/blob/main/INSTALL.md)
