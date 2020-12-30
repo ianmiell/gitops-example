@@ -20,7 +20,7 @@ Notes:
 
 - GitHub: will use the [GitHub Packages](https://github.com/features/packages) service, which has a free tier which should be sufficient for this.
 
-## Walkthrough
+## Walkthrough
 
 1. Get personal access token `EXAMPLE_GITOPS_DEPLOY_TRIGGER`: On GitHub, go to `Settings => Developer Settings => Tick: public_repo`. Note the value, which will be referred to as: `EXAMPLE_GITOPS_DEPLOY_TRIGGER` below
 1. Get personal access token `EXAMPLE_GITOPS_DEPLOY_DOCKER_LOGIN`: On GitHub, go to: `Settings => Developer Settings => Tick: read:packages`. Note the value, which will be referred to as: `EXAMPLE_GITOPS_DEPLOY_DOCKER_LOGIN` below
