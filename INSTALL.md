@@ -1,6 +1,6 @@
 # Install / Set Up
 
-## Pre-Requisites
+## Pre-Requisites
 
 You will need:
 
